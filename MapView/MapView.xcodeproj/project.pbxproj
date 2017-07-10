@@ -80,7 +80,6 @@
 		ACD196171F13CDD4002B7978 /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD1960C1F13CDD4002B7978 /* FMDB.h */; };
 		ACD196181F13CDD4002B7978 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD1960D1F13CDD4002B7978 /* FMResultSet.h */; };
 		ACD196191F13CDD4002B7978 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD1960E1F13CDD4002B7978 /* FMResultSet.m */; };
-		ACD1961B1F13CF78002B7978 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD1961A1F13CF78002B7978 /* libsqlite3.dylib */; };
 		B1EB26C610B5D8E6009F8658 /* RMNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = B1EB26C510B5D8E6009F8658 /* RMNotifications.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		B8474BA40EB40094006A0BC1 /* RMDatabaseCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B8474B980EB40094006A0BC1 /* RMDatabaseCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8474BA50EB40094006A0BC1 /* RMDatabaseCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B8474B990EB40094006A0BC1 /* RMDatabaseCache.m */; };
@@ -284,7 +283,6 @@
 		ACD1960C1F13CDD4002B7978 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = Map/FMDB/FMDB.h; sourceTree = SOURCE_ROOT; };
 		ACD1960D1F13CDD4002B7978 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = Map/FMDB/FMResultSet.h; sourceTree = SOURCE_ROOT; };
 		ACD1960E1F13CDD4002B7978 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = Map/FMDB/FMResultSet.m; sourceTree = SOURCE_ROOT; };
-		ACD1961A1F13CF78002B7978 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		B1EB26C510B5D8E6009F8658 /* RMNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNotifications.h; sourceTree = "<group>"; };
 		B83E64B60E80E73F001663B6 /* RMPixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPixel.h; sourceTree = "<group>"; };
 		B83E64B70E80E73F001663B6 /* RMPixel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RMPixel.c; sourceTree = "<group>"; };
@@ -404,7 +402,6 @@
 				B8C974520E8A19B2007D16AD /* CoreLocation.framework in Frameworks */,
 				B8C974530E8A19B2007D16AD /* UIKit.framework in Frameworks */,
 				B8C974540E8A19B2007D16AD /* QuartzCore.framework in Frameworks */,
-				ACD1961B1F13CF78002B7978 /* libsqlite3.dylib in Frameworks */,
 				AC011B911F13DAD900939A59 /* libGRMustache7-iOS.a in Frameworks */,
 				DD97C11616489678007C4652 /* libProj4.a in Frameworks */,
 			);
@@ -486,7 +483,6 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				B83E65680E80E830001663B6 /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
-				ACD1961A1F13CF78002B7978 /* libsqlite3.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
