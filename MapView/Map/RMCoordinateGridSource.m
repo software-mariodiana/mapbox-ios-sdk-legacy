@@ -231,8 +231,11 @@ static double coordinateGridSpacingDecimal[19] = {
             // if any other thread uses these functions outside of the @synchronized
             @synchronized (self)
             {
-                CGSize label1Size = [label1 sizeWithFont:self.majorLabelFont];
-                CGSize label2Size = [label2 sizeWithFont:self.minorLabelFont];
+                NSDictionary* majorLabelAttributes = @{ NSFontAttributeName: [[self majorLabelFont] fontName] };
+                CGSize label1Size = [label1 sizeWithAttributes:majorLabelAttributes];
+                
+                NSDictionary* minorLabelAttributes = @{ NSFontAttributeName: [[self minorLabelFont] fontName] };
+                CGSize label2Size = [label2 sizeWithAttributes:minorLabelAttributes];
 
                 CGFloat upperBorder = yCoordinate - MAX((label1Size.height / 2.0), (label2Size.height / 2.0));
                 CGRect labelBackgroundRect = CGRectMake(xCoordinate - label1Size.width - 3.0, upperBorder - 1.0, label1Size.width + label2Size.width + 8.0, MAX(label1Size.height, label2Size.height) + 2.0);
@@ -241,10 +244,10 @@ static double coordinateGridSpacingDecimal[19] = {
                 UIRectFill(labelBackgroundRect);
 
                 CGContextSetFillColorWithColor(context, self.majorLabelColor.CGColor);
-                [label1 drawAtPoint:CGPointMake(xCoordinate - label1Size.width - 1.0, upperBorder) withFont:self.majorLabelFont];
+                [label1 drawAtPoint:CGPointMake(xCoordinate - label1Size.width - 1.0, upperBorder) withAttributes:majorLabelAttributes];
 
                 CGContextSetFillColorWithColor(context, self.minorLabelColor.CGColor);
-                [label2 drawAtPoint:CGPointMake(xCoordinate + 1.0, upperBorder) withFont:self.minorLabelFont];
+                [label2 drawAtPoint:CGPointMake(xCoordinate + 1.0, upperBorder) withAttributes:minorLabelAttributes];
             }
         }
     }
@@ -281,8 +284,11 @@ static double coordinateGridSpacingDecimal[19] = {
 
             @synchronized (self)
             {
-                CGSize label1Size = [label1 sizeWithFont:self.majorLabelFont];
-                CGSize label2Size = [label2 sizeWithFont:self.minorLabelFont];
+                NSDictionary* majorLabelAttributes = @{ NSFontAttributeName: [[self majorLabelFont] fontName] };
+                CGSize label1Size = [label1 sizeWithAttributes:majorLabelAttributes];
+                
+                NSDictionary* minorLabelAttributes = @{ NSFontAttributeName: [[self minorLabelFont] fontName] };
+                CGSize label2Size = [label2 sizeWithAttributes:minorLabelAttributes];
 
                 CGFloat upperBorder = yCoordinate - MAX((label1Size.height / 2.0), (label2Size.height / 2.0));
                 CGRect labelBackgroundRect = CGRectMake(xCoordinate - label1Size.width - 3.0, upperBorder - 1.0, label1Size.width + label2Size.width + 8.0, MAX(label1Size.height, label2Size.height) + 2.0);
@@ -291,10 +297,10 @@ static double coordinateGridSpacingDecimal[19] = {
                 UIRectFill(labelBackgroundRect);
 
                 CGContextSetFillColorWithColor(context, self.majorLabelColor.CGColor);
-                [label1 drawAtPoint:CGPointMake(xCoordinate - label1Size.width - 1.0, upperBorder) withFont:self.majorLabelFont];
+                [label1 drawAtPoint:CGPointMake(xCoordinate - label1Size.width - 1.0, upperBorder) withAttributes:majorLabelAttributes];
 
                 CGContextSetFillColorWithColor(context, self.minorLabelColor.CGColor);
-                [label2 drawAtPoint:CGPointMake(xCoordinate + 1.0, upperBorder) withFont:self.minorLabelFont];
+                [label2 drawAtPoint:CGPointMake(xCoordinate + 1.0, upperBorder) withAttributes:minorLabelAttributes];
             }
         }
     }

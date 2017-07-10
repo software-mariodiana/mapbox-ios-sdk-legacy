@@ -44,6 +44,16 @@ typedef enum : short {
 
 /** @name Querying the Cache */
 
+- (void)didReceiveMemoryWarning;
+
+@optional
+
+// Note: The two methods, cachedImage:withCacheKey: and cachedImage:withCacheKey:bypassingMemoryCache: had
+// been mandatory protocol methods. However, the library (as of versions 1.6.0 & 1.6.1) had left these methods
+// unimplemented in various classes implementing this protocol. What's that all about? Since, I'm guessing, the
+// library has been working fine all this time, and since I can't stand warnings, I have marked these protocol
+// methods as "optional." - mdiana, 2017.07.10.
+
 /** Returns an image from the cache if it exists. 
 *   @param tile A desired RMTile.
 *   @param cacheKey The key representing a certain cache.
@@ -56,10 +66,6 @@ typedef enum : short {
 *   @param shouldBypassMemoryCache Whether to only consult disk-based caches.
 *   @return An image of the tile that can be used to draw a portion of the map. */
 - (UIImage *)cachedImage:(RMTile)tile withCacheKey:(NSString *)cacheKey bypassingMemoryCache:(BOOL)shouldBypassMemoryCache;
-
-- (void)didReceiveMemoryWarning;
-
-@optional
 
 /** @name Adding to the Cache */
 
