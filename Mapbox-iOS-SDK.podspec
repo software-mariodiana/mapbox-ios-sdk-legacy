@@ -1,7 +1,7 @@
 Pod::Spec.new do |m|
 
   m.name    = 'Mapbox-iOS-SDK'
-  m.version = '1.6.0'
+  m.version = '1.7.1'
 
   m.summary          = 'An open source toolset for building mapping applications for iOS devices.'
   m.description      = 'An open source toolset for building mapping applications for iOS devices with great flexibility for visual styling, offline use, and customizability.'
@@ -11,7 +11,7 @@ Pod::Spec.new do |m|
   m.screenshot       = 'https://raw.github.com/mapbox/mapbox-ios-sdk/packaging/screenshot.png'
   m.social_media_url = 'https://twitter.com/Mapbox'
 
-  m.source = { :git => 'https://github.com/mapbox/mapbox-ios-sdk.git', :tag => m.version.to_s }
+  m.source = { :git => 'https://github.com/software-mariodiana/mapbox-ios-sdk-legacy.git', :tag => m.version.to_s }
 
   m.platform              = :ios
   m.ios.deployment_target = '5.0'
