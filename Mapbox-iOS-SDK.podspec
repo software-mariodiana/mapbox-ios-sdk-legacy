@@ -1,7 +1,7 @@
 Pod::Spec.new do |m|
 
   m.name    = 'Mapbox-iOS-SDK'
-  m.version = '1.7.1'
+  m.version = '1.7.2-beta'
 
   m.summary          = 'An open source toolset for building mapping applications for iOS devices.'
   m.description      = 'An open source toolset for building mapping applications for iOS devices with great flexibility for visual styling, offline use, and customizability.'
@@ -36,8 +36,8 @@ Pod::Spec.new do |m|
 
   m.vendored_libraries = 'Proj4/libProj4.a'
 
-  m.dependency 'FMDB', '2.3'
-  m.dependency 'GRMustache', '7.3.0'
-  m.dependency 'SMCalloutView', '2.0'
+  m.dependency 'FMDB', '2.7.2'
+  m.dependency 'GRMustache', '7.3.2'
+  m.dependency 'SMCalloutView', '2.1.5'
 
 end
