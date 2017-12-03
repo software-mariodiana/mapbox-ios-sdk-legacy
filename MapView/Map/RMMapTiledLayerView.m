@@ -93,6 +93,14 @@
 
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)context
 {
+    // iOS 11 is strict about what should be run in the main thread.
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self handleDrawLayer:layer inContext:context];
+    });
+}
+
+- (void)handleDrawLayer:(CALayer *)layer inContext:(CGContextRef)context
+{
     CGRect rect   = CGContextGetClipBoundingBox(context);
     CGRect bounds = self.bounds;
     short zoom    = log2(bounds.size.width / rect.size.width);
