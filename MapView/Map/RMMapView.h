@@ -38,6 +38,8 @@
 #import "RMMapScrollView.h"
 #import "RMTileSourcesContainer.h"
 
+extern NSString* const RMLocationServicesForbidUserTrackingNotification;
+
 @class RMProjection;
 @class RMFractalTileProjection;
 @class RMTileCache;

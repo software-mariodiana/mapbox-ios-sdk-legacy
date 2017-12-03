@@ -66,6 +66,8 @@
 #define kDefaultMaximumZoomLevel 25.0
 #define kDefaultInitialZoomLevel 11.0
 
+NSString* const RMLocationServicesForbidUserTrackingNotification = @"RMLocationServicesForbidUserTrackingNotification";
+
 #pragma mark --- end constants ----
 
 @interface RMMapView (PrivateMethods) <UIScrollViewDelegate,
@@ -3751,6 +3753,9 @@
     {
         self.userTrackingMode  = RMUserTrackingModeNone;
         self.showsUserLocation = NO;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:RMLocationServicesForbidUserTrackingNotification
+                                                            object:[NSNumber numberWithInteger:status]];
     }
 }
 
