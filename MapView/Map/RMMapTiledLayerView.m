@@ -53,6 +53,28 @@
     return [CATiledLayer class];
 }
 
+- (CGRect)bounds
+{
+    // The architecture of the framework is such that bounds is sometimes accessed from a
+    // non-main thread. iOS 11 complains about this sort of thing.
+    __block CGRect theBounds = CGRectNull;
+    
+    if ([NSThread isMainThread])
+    {
+        // Trying to grab the main thread if you're on the main thread causes deadlock.
+        theBounds = [super bounds];
+    }
+    else
+    {
+        // Submits a block object for execution on a dispatch queue and waits until that block completes.
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            theBounds = [super bounds];
+        });
+    }
+    
+    return theBounds;
+}
+
 - (CATiledLayer *)tiledLayer
 {  
     return (CATiledLayer *)self.layer;
