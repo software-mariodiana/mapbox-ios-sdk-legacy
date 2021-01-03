@@ -34,6 +34,7 @@
 #define RMTileRequested @"RMTileRequested"
 #define RMTileRetrieved @"RMTileRetrieved"
 
+@class UIImage;
 @class RMFractalTileProjection, RMTileCache, RMProjection, RMTileImage, RMTileCache;
 
 @protocol RMMercatorToTileProjection;
