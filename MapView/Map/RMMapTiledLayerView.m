@@ -39,6 +39,29 @@
 
 #define IS_VALID_TILE_IMAGE(image) (image != nil && [image isKindOfClass:[UIImage class]])
 
+/**
+ * Fix iOS 13 bug that causes map tiles to fail to show in view.
+ *
+ * See: https://developer.apple.com/forums/thread/120526
+ */
+@interface UIImage (MDXiOS13DrawInRectFix)
+- (void)mdx_drawInRect:(CGRect)rect;
+@end
+
+@implementation UIImage (MDXiOS13DrawInRectFix)
+
+- (void)mdx_drawInRect:(CGRect)rect
+{
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
+    CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRectMake(0, 0, self.size.width, self.size.height), self.CGImage);
+    UIImage* flipped = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    CGContextDrawImage(ctx, rect, flipped.CGImage);
+}
+
+@end
+
 @implementation RMMapTiledLayerView
 {
     __weak RMMapView *_mapView;
@@ -144,7 +167,7 @@
                     UIImage *tileImage = [_tileSource imageForTile:RMTileMake(x, y, zoom) inCache:[_mapView tileCache]];
 
                     if (IS_VALID_TILE_IMAGE(tileImage))
-                        [tileImage drawInRect:CGRectMake(x * rectSize, y * rectSize, rectSize, rectSize)];
+                        [tileImage mdx_drawInRect:CGRectMake(x * rectSize, y * rectSize, rectSize, rectSize)];
                 }
             }
 
@@ -290,7 +313,7 @@
 
                 CGRect debugRect = CGRectMake(0, 0, tileImage.size.width, tileImage.size.height);
 
-                [tileImage drawInRect:debugRect];
+                [tileImage mdx_drawInRect:debugRect];
 
                 UIFont *font = [UIFont systemFontOfSize:32.0];
                 NSDictionary* attributes = @{ NSFontAttributeName: [font fontName] };
@@ -316,7 +339,7 @@
                 UIGraphicsEndImageContext();
             }
 
-            [tileImage drawInRect:rect];
+            [tileImage mdx_drawInRect:rect];
         }
         else
         {
