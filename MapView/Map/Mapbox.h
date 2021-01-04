@@ -53,3 +53,6 @@
 #import "RMTileMillSource.h"
 #import "RMUserLocation.h"
 #import "RMUserTrackingBarButtonItem.h"
+
+// Files with an "RMX" prefix represent an extension to the Mapbox/RouteMe library.
+#import "RMXSimpleWebTileSource.h"
